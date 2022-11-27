@@ -1,0 +1,339 @@
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("../assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
+    format("truetype");
+}
+
+:root {
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+
+  --ff-body: "Inter", sans-serif;
+
+  --fs-base: 1rem;
+
+  --fw-regular: 400;
+  --fw-semi-bold: 700;
+  --fw-bold: 800;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-size: var(--fs-base);
+  font-family: var(--ff-body);
+  color: var(--very-dark-blue);
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2 {
+  line-height: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+/* Main Styles */
+.container {
+   --px: 1rem; /* Padding-inline */
+  max-width: 1200px;
+  margin: auto;
+  padding-inline: var(--px);
+}
+/* 576px - Small screen Devices*/
+@media screen and (min-width: 36rem) {
+  .container {
+    --px: 2rem;
+  }
+}
+/* 768px - Medium Screen Devices*/
+@media screen and (min-width: 48rem) {
+  .container {
+    --px: 5rem;
+    display: grid;
+    grid-template-areas:
+      "nav nav nav nav"
+      "illustration illustration illustration illustration"
+      "title text text text"
+      "new featured featured featured";
+    gap: 2rem;
+    padding-block-end: 7rem;
+  }
+}
+
+/* 1200px - Extra Large Screen Devices*/
+@media screen and (min-width: 75rem){
+  .container {
+    --px: 0;
+    row-gap: 4rem;
+    grid-template-areas:
+      "nav nav nav"
+      "illustration illustration new"
+      "title text new"
+      "featured featured featured"
+      ;
+  }
+}
+
+/* 1400px - Extra Extra Large Screen Devices*/
+/* @media screen and (min-width: 87.5rem){
+  .container {
+    --px: 0;
+  }
+} */
+
+/* Header */
+header {
+  grid-area: nav;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 2rem;
+}
+
+/* 768px - Medium screen devices*/
+@media screen and (min-width: 48rem){
+  .navigation {
+    padding-block-end: 0;
+  }
+}
+
+.logo {
+  width: 2.8rem;
+}
+
+.nav-toggle {
+  z-index: 999;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border: none;
+  background-color: transparent;
+  background-image: url("../assets/images/icon-menu.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  background-image: url("../assets/images/icon-menu-close.svg");
+}
+
+/* 992px - Large scren devices */
+@media screen and (min-width: 62rem) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.navigation ul {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  transform: translateX(100%);
+  background-color: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 992px - Large scren devices */
+@media screen and (min-width: 62rem){
+  .navigation ul {
+    position: static;
+    flex-direction: row;
+    height: max-content;
+    transform: translateX(0);
+    gap: 2rem;
+  }
+}
+
+.navigation ul[data-visible="true"] {
+  transform: translateX(25%);
+}
+
+/* Illustration */
+.illustration {
+  grid-area: illustration;
+}
+
+/* Title */
+.title {
+  font-weight: var(--fw-bold);
+  font-size: 2.5rem;
+  padding-block: 1rem;
+  grid-area: title;
+}
+
+@media screen and (min-width: 48rem) {
+  .title {
+    padding-block: 0;
+  }
+}
+
+/* Text Content */
+.content {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  grid-area: text;
+}
+
+.content p {
+  color: var(--dark-grayish-blue);
+}
+
+/* Button */
+.button {
+  border: none;
+  background-color: var(--soft-red);
+  color: var(--off-white);
+  font-weight: var(--fw-semi-bold);
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  letter-spacing: 3px;
+}
+
+/* New articles */
+.new__articles {
+  margin-block: 4rem;
+  background-color: var(--very-dark-blue);
+  color: var(--off-white);
+  padding: 1.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-area: new;
+}
+
+@media screen and (min-width: 48rem) {
+  .new__articles {
+    margin: 0;
+  }
+}
+
+.new__article__heading {
+  color: var(--soft-orange);
+  font-size: 2rem;
+}
+
+.new__articles > div:not(:last-child) {
+  padding-block-end: 2rem;
+  border-bottom: 1px solid var(--off-white);
+}
+
+.new__article__topics {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.new__article__topics h2 {
+  font-size: 1.28rem;
+}
+
+/* Featured Articles */
+.featured__articles {
+  display: grid;
+  gap: 2.5rem;
+  color: var(--dark-grayish-blue);
+  line-height: 1;
+  padding-block-end: 5rem;
+  grid-area: featured;
+}
+
+@media screen and (min-width: 48rem) {
+  .featured__articles {
+    padding: 0;
+  }
+}
+
+/* 1200px - Extra Large Screen Devices*/
+@media screen and (min-width: 75rem){
+  .featured__articles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featured__articles > * {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.featured__articles__numbers {
+  font-weight: var(--fw-semi-bold);
+  color: var(--grayish-blue);
+  font-size: 2rem;
+}
+
+.featured__articles__title {
+  font-size: 1.2rem;
+  color: var(--very-dark-blue);
+}
+
+.featured__articles__content {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.featured__articles__content p {
+  line-height: 1.7;
+}
