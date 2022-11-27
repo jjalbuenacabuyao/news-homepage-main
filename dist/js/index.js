@@ -6,6 +6,7 @@ navButton.addEventListener("click", () => {
   if (isVisible == "false"){
     navButton.setAttribute("aria-expanded", true);
     nav.setAttribute("data-visible", true);
+    document.body.style.overflow = 'hidden';
   } else {
     navButton.setAttribute("aria-expanded", false);
     nav.setAttribute("data-visible", false);
