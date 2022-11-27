@@ -132,13 +132,6 @@ li {
   }
 }
 
-/* 1400px - Extra Extra Large Screen Devices*/
-/* @media screen and (min-width: 87.5rem){
-  .container {
-    --px: 0;
-  }
-} */
-
 /* Header */
 header {
   grid-area: nav;
