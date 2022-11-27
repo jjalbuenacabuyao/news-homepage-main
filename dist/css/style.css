@@ -179,13 +179,18 @@ header {
 
 .navigation ul {
   position: fixed;
-  inset: 0;
+  right: 0;
+  top: 0;
+  width: 75%;
   height: 100vh;
   transform: translateX(100%);
+
   background-color: var(--off-white);
+  padding-inline-start: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 1rem;
 }
 
 /* 992px - Large scren devices */
@@ -200,7 +205,8 @@ header {
 }
 
 .navigation ul[data-visible="true"] {
-  transform: translateX(25%);
+  transform: translateX(0);
+  box-shadow: -25vw 0 rgba(0, 0, 0, 0.5);
 }
 
 /* Illustration */
