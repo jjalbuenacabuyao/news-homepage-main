@@ -199,6 +199,7 @@ header {
     position: static;
     flex-direction: row;
     height: max-content;
+    width: fit-content;
     transform: translateX(0);
     gap: 2rem;
   }
